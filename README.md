@@ -6,11 +6,12 @@ This repository contains the frontend application for the Admin Dashboard, desig
 
 Project consists of the following pages:
 
+- Log in: the user can log in using their email address and password.
 - Dashboard: displays information about the number of products, suppliers, customers, recent customers and income/expenses.
-- Orders: displays a list of orders.
-- Products: displays a list of products and has the functionality to add a new product and edit product data.
-- Customers: displays a list of customers.
-- Suppliers: displays a list of suppliers and has the functionality to add a new supplier and edit supplier data.
+- All orders: displays a list of orders.
+- All products: displays a list of products and has the functionality to add a new product and edit product data.
+- All suppliers: displays a list of suppliers and has the functionality to add a new supplier and edit supplier data.
+- All customers: displays a list of customers.
 
 The user has the ability to authorize (log in and log out).
 Responsive design for different devices.
@@ -39,11 +40,12 @@ clone repository, npm run install, npm run dev
 
 Проєкт складається з таких сторінок:
 
-- Панель інструментів: відображає інформацію про кількість продуктів, постачальників, клієнтів, останніх клієнтів та доходи/витрати.
-- Замовлення: відображає список замовлень.
-- Продукти: відображає список продуктів та має функціональність додавання нового продукту та редагування даних про продукти.
-- Клієнти: відображає список клієнтів.
-- Постачальники: відображає список постачальників та має функціональність додавання нового постачальника та редагування даних постачальника.
+- Log in: користувач може увійти, використовуючи свою адресу електронної пошти та пароль.
+- Dashboard: відображає інформацію про кількість продуктів, постачальників, клієнтів, останніх клієнтів та доходи/витрати.
+- All orders: відображає список замовлень.
+- All products: відображає список продуктів та має функціонал додавання нового продукту та редагування даних про продукти.
+- All suppliers: відображає список клієнтів.
+- All customers: відображає список постачальників та має функціонал додавання нового постачальника та редагування даних постачальника.
 
 Користувач має можливість авторизації (входу та виходу).
 Адаптивний дизайн для різних пристроїв.
