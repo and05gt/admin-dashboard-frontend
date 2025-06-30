@@ -1,0 +1,17 @@
+.subtitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.subtitle {
+  color: rgba(29, 30, 33, 0.4);
+}
+
+.path {
+  text-transform: capitalize;
+}
+
+.btn {
+  text-decoration: none;
+}

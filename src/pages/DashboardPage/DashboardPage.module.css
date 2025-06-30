@@ -1,0 +1,26 @@
+.main {
+  grid-area: m;
+}
+
+.dashboardSection {
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .dashboardSection {
+    padding-bottom: 40px;
+  }
+}
+
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 1440px) {
+  .tableWrapper {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,7 @@
+.sidebar {
+  padding: 40px 18px;
+  border-right: 1px solid rgba(29, 30, 33, 0.1);
+  width: 80px;
+  min-height: 90vh;
+  grid-area: s;
+}

@@ -1,4 +1,12 @@
+import Container from '../../components/Container/Container.jsx';
+
 const AllSuppliersPage = () => {
-  return <div>AllSuppliersPage</div>;
+  return (
+    <main>
+      <Container>
+        <section></section>
+      </Container>
+    </main>
+  );
 };
 export default AllSuppliersPage;

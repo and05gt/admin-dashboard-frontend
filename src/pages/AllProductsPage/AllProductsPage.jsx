@@ -1,4 +1,17 @@
+import AllProductsTable from '../../components/AllProductsTable/AllProductsTable.jsx';
+import Container from '../../components/Container/Container.jsx';
+import ProductNameFilter from '../../components/ProductNameFilter/ProductNameFilter.jsx';
+
 const AllProductsPage = () => {
-  return <div>AllProductsPage</div>;
+  return (
+    <main>
+      <Container>
+        <section>
+          <ProductNameFilter />
+          <AllProductsTable />
+        </section>
+      </Container>
+    </main>
+  );
 };
 export default AllProductsPage;

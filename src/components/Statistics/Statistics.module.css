@@ -1,0 +1,105 @@
+.statisticsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 335px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .statisticsList {
+    flex-wrap: nowrap;
+    width: 704px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .statisticsList {
+    width: 760px;
+  }
+}
+
+.statisticsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 8px;
+  padding: 14px;
+  width: 157px;
+  height: 98px;
+  background-color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .statisticsItem {
+    gap: 28px;
+    padding: 14px 18px;
+    width: 221px;
+    height: 108px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .statisticsItem {
+    gap: 28px;
+    padding: 14px 18px;
+    width: 240px;
+    height: 108px;
+  }
+}
+
+.statisticsItem:nth-child(1) {
+  border: 1px solid #59b17a;
+  width: 158px;
+}
+
+@media (min-width: 768px) {
+  .statisticsItem:nth-child(1) {
+    width: 222px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .statisticsItem:nth-child(1) {
+    width: 240px;
+  }
+}
+
+.statItemTitle {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .statItemIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.statItemText {
+  line-height: 1.17;
+  color: rgba(29, 30, 33, 0.4);
+}
+
+@media (min-width: 768px) {
+  .statItemText {
+    line-height: 1.5;
+  }
+}
+
+.statItemValue {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  .statItemValue {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}

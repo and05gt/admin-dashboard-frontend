@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+  padding: 17px 20px;
+  border-bottom: 1px solid rgba(29, 30, 33, 0.1);
+  grid-area: h;
+}
+
+.headerWrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    gap: 16px;
+    padding: 15px 20px;
+  }
+
+  .headerWrap {
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header {
+    justify-content: space-between;
+    padding: 15px 40px 15px 20px;
+  }
+
+  .headerWrap {
+    gap: 60px;
+  }
+}

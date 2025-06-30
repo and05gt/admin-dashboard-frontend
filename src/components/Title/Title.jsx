@@ -1,4 +1,6 @@
+import s from './Title.module.css';
+
 const Title = () => {
-  return <div>Title</div>;
+  return <p className={s.title}>Medicine store</p>;
 };
 export default Title;
