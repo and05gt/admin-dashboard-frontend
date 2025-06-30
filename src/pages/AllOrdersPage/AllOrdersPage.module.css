@@ -1,0 +1,29 @@
+.main {
+  grid-area: m;
+}
+
+.allOrdersSection {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tableWrapper {
+  width: 355px;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .tableWrapper {
+    width: 736px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .tableWrapper {
+    width: 1280px;
+    overflow: visible;
+  }
+}

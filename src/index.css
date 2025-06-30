@@ -46,6 +46,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 img {
@@ -58,4 +59,11 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+input {
+  font-family: "Inter", sans-serif;
+  border: none;
+  outline: none;
 }

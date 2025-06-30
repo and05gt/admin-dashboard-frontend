@@ -1,0 +1,49 @@
+.paginationList {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.paginationItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 768px) {
+  .paginationItem {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.active {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #59b17a;
+}
+
+@media (min-width: 768px) {
+  .active {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+.btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #e7f1ed;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    width: 11px;
+    height: 11px;
+  }
+}
