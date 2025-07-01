@@ -1,4 +1,22 @@
+import sprite from '../../assets/sprite.svg';
+import s from './ProductNameFilter.module.css';
+
 const ProductNameFilter = () => {
-  return <div>ProductNameFilter</div>;
+  return (
+    <form className={s.form}>
+      <input
+        className={s.input}
+        type="text"
+        name="name"
+        placeholder="Product Name"
+      />
+      <button className={s.btn} type="submit">
+        <svg className={s.iconBtn} width={14} height={14}>
+          <use href={`${sprite}#icon-filter`}></use>
+        </svg>
+        Filter
+      </button>
+    </form>
+  );
 };
 export default ProductNameFilter;
