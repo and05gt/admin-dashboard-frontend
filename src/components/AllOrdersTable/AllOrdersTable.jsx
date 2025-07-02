@@ -26,8 +26,8 @@ const AllOrdersTable = () => {
           <td>12</td>
           <td>July 31, 2023</td>
           <td>890.66</td>
-          <td className={s.status}>
-            <span className={s.completed}>Completed</span>
+          <td>
+            <div className={`${s.status} ${s.completed}`}>Completed</div>
           </td>
         </tr>
         <tr>
@@ -40,8 +40,8 @@ const AllOrdersTable = () => {
           <td>19</td>
           <td>July 31, 2023</td>
           <td>340.16</td>
-          <td className={s.status}>
-            <span className={s.confirmed}>Confirmed</span>
+          <td>
+            <div className={`${s.status} ${s.confirmed}`}>Confirmed</div>
           </td>
         </tr>
         <tr>
@@ -54,8 +54,8 @@ const AllOrdersTable = () => {
           <td>09</td>
           <td>July 31, 2023</td>
           <td>530.76</td>
-          <td className={s.status}>
-            <span className={s.pending}>Pending</span>
+          <td>
+            <div className={`${s.status} ${s.pending}`}>Pending</div>
           </td>
         </tr>
       </tbody>
