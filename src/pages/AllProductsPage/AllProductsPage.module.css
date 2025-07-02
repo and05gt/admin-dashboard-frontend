@@ -1,8 +1,4 @@
-.main {
-  grid-area: m;
-}
-
-.allProductsSection {
+.productsSection {
   padding-top: 40px;
   padding-bottom: 20px;
   display: flex;
@@ -36,9 +32,6 @@
   border-radius: 60px;
   padding: 13px;
   background-color: #59b17a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .btnIcon {

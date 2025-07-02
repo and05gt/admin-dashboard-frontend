@@ -1,0 +1,60 @@
+.suppliersSection {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filterWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .filterWrap {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.btn {
+  border: 1px solid rgba(89, 177, 122, 0.5);
+  border-radius: 60px;
+  width: 177px;
+  height: 44px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #1d1e21;
+  background-color: transparent;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    width: 196px;
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+
+.tableWrapper {
+  width: 355px;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .tableWrapper {
+    width: 736px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .tableWrapper {
+    width: 1280px;
+    overflow: visible;
+  }
+}

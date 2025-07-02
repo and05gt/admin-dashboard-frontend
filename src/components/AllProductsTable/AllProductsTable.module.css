@@ -100,7 +100,7 @@
   }
 }
 
-.table td .actionWrapper {
+.table td.actionWrapper {
   display: flex;
   gap: 8px;
 }
@@ -108,15 +108,18 @@
 .buttonEdit {
   border: 1px solid rgba(89, 177, 122, 0.5);
   border-radius: 30px;
-  padding: 5.5px;
+  padding: 6px;
   width: 28px;
   height: 28px;
   background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
   .buttonEdit {
-    padding: 7px;
+    padding: 8px;
     width: 32px;
     height: 32px;
   }
@@ -129,15 +132,18 @@
 .buttonTrash {
   border: 1px solid rgba(232, 80, 80, 0.5);
   border-radius: 30px;
-  padding: 5.5px;
+  padding: 6px;
   width: 28px;
   height: 28px;
   background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
   .buttonTrash {
-    padding: 7px;
+    padding: 8px;
     width: 32px;
     height: 32px;
   }
