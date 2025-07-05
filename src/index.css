@@ -7,19 +7,6 @@
   line-height: 1.5;
   color: #1d1e21;
   background-color: #f7f8fa;
-  display: flex;
-  flex-direction: column;
-}
-
-@media (min-width: 1440px) {
-  .root {
-    display: grid;
-    grid-template-columns: 80px auto;
-    grid-template-rows: 80px auto;
-    grid-template-areas:
-      'h h'
-      's m';
-  }
 }
 
 body {

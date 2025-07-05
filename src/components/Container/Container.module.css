@@ -16,8 +16,14 @@
 
 @media (min-width: 1440px) {
   .container {
-    max-width: 1440px;
+    max-width: 1360px;
     padding-right: 40px;
     padding-left: 40px;
   }
+}
+
+.loginContainer {
+  max-width: 1440px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
