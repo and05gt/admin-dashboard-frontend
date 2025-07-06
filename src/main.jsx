@@ -4,11 +4,14 @@ import 'modern-normalize';
 import App from './App.jsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
+import { ModalProvider } from './components/ModalContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ModalProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ModalProvider>
   </StrictMode>
 );
