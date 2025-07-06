@@ -1,5 +1,5 @@
 import useResponsive from '../../hooks/useResponsive.js';
-import BurgerMenuBtn from '../BurgerMenuBtn/BurgerMenuBtn.jsx';
+import BurgerMenu from '../BurgerMenu/BurgerMenu.jsx';
 import Logo from '../Logo/Logo.jsx';
 import LogoutBtn from '../LogoutBtn/LogoutBtn.jsx';
 import Subtitle from '../Subtitle/Subtitle.jsx';
@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      {(isMobile || isTablet) && <BurgerMenuBtn />}
+      {(isMobile || isTablet) && <BurgerMenu />}
       <div className={s.headerWrap}>
         <Logo />
         <div className={s.headerTitle}>
