@@ -1,0 +1,112 @@
+.modalTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .modalTitle {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.formInputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .formInputWrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px 8px;
+  }
+}
+
+.input {
+  width: 295px;
+  height: 44px;
+  padding: 13px 18px;
+  border: 1px solid rgba(29, 30, 33, 0.1);
+  border-radius: 60px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+  .input {
+    width: 224px;
+  }
+}
+
+.input:focus {
+  border: 1px solid #59b17a;
+}
+
+.btnWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border-radius: 60px;
+  height: 44px;
+}
+
+.saveBtn {
+  width: 146px;
+  background-color: #59b17a;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #fff;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+  .saveBtn {
+    width: 133px;
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+}
+
+.saveBtn:hover,
+.saveBtn:focus {
+  background-color: #3f945f;
+}
+
+.cancelBtn {
+  width: 140px;
+  background-color: rgba(29, 30, 33, 0.1);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(29, 30, 33, 0.4);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+  .cancelBtn {
+    width: 133px;
+    font-size: 14px;
+    line-height: 1.28571;
+  }
+}
+
+.cancelBtn:hover,
+.cancelBtn:focus {
+  border: 1px solid #59b17a;
+  background-color: #ffffff;
+  color: #59b17a;
+}

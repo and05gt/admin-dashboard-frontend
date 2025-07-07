@@ -1,7 +1,11 @@
 import sprite from '../../assets/sprite.svg';
+import EditProductData from '../EditProductData/EditProductData.jsx';
+import { useModal } from '../ModalContext.jsx';
 import s from './AllProductsTable.module.css';
 
 const AllProductsTable = () => {
+  const { openModal } = useModal();
+
   return (
     <table className={s.table}>
       <caption className={s.tableCaption}>All products</caption>
@@ -24,7 +28,9 @@ const AllProductsTable = () => {
           <td>Square</td>
           <td>89.66</td>
           <td className={s.actionWrapper}>
-            <button className={s.buttonEdit}>
+            <button
+              className={s.buttonEdit}
+              onClick={() => openModal(<EditProductData />)}>
               <svg className={s.buttonEditIcon} width={16} height={16}>
                 <use href={`${sprite}#icon-edit`}></use>
               </svg>
