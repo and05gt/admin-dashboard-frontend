@@ -46,11 +46,9 @@ button {
   border: none;
   outline: none;
   cursor: pointer;
-  font-family: "Inter", sans-serif;
 }
 
 input {
-  font-family: "Inter", sans-serif;
   border: none;
   outline: none;
 }

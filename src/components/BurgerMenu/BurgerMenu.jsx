@@ -1,11 +1,16 @@
-import { useEffect, useState } from 'react';
-import sprite from '../../assets/sprite.svg';
-import LogoutBtn from '../LogoutBtn/LogoutBtn.jsx';
-import SidebarMenu from '../SidebarMenu/SidebarMenu.jsx';
-import s from './BurgerMenu.module.css';
+import { useEffect, useState } from "react";
+import sprite from "../../assets/sprite.svg";
+import LogoutBtn from "../LogoutBtn/LogoutBtn.jsx";
+import SidebarMenu from "../SidebarMenu/SidebarMenu.jsx";
+import s from "./BurgerMenu.module.css";
+import { noScroll } from "../../utils/noScroll.js";
 
 const BurgerMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    noScroll(isMenuOpen);
+  }, [isMenuOpen]);
 
   const handleCloseMenu = e => {
     e.stopPropagation();
@@ -22,14 +27,14 @@ const BurgerMenu = () => {
 
   useEffect(() => {
     const handleKeydown = e => {
-      if (e.code === 'Escape') {
+      if (e.code === "Escape") {
         setIsMenuOpen(false);
       }
     };
 
-    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener("keydown", handleKeydown);
     return () => {
-      document.removeEventListener('keydown', handleKeydown);
+      document.removeEventListener("keydown", handleKeydown);
     };
   }, [setIsMenuOpen]);
 

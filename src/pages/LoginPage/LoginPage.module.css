@@ -43,6 +43,7 @@
 @media (min-width: 1440px) {
   .loginWrap {
     flex-direction: row;
+    align-items: center;
     justify-content: start;
     gap: 150px;
   }
@@ -84,7 +85,7 @@
 
 .imgElements {
   position: absolute;
-  left: 117px;
+  left: 97px;
   top: 666px;
 }
 

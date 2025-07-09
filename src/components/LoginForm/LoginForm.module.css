@@ -17,7 +17,13 @@
   gap: 14px;
 }
 
+.label {
+  position: relative;
+  width: 100%;
+}
+
 .input {
+  width: 100%;
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
   padding: 13px 18px;
@@ -31,6 +37,19 @@
 
 .input:focus {
   border: 1px solid #59b17a;
+}
+
+.error {
+  margin-top: 4px;
+  padding-left: 18px;
+  color: #e85050;
+}
+
+.togglePwdBtn {
+  position: absolute;
+  top: 13px;
+  right: 18px;
+  background-color: transparent;
 }
 
 .btn {
