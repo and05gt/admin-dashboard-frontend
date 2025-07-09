@@ -1,40 +1,73 @@
-import { useModal } from '../ModalContext.jsx';
-import s from './EditSupplierData.module.css';
+import { useModal } from "../ModalContext.jsx";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import s from "./EditSupplierData.module.css";
+
+const supplierSchema = yup.object().shape({
+  name: yup.string().required("Name is required!"),
+  address: yup.string().required("Address is required!"),
+  suppliers: yup.string().required("Suppliers is required!"),
+  date: yup.string().required("Date is required!"),
+  amount: yup.string().required("Amount is required!"),
+  status: yup.string().required("Status is required!"),
+});
 
 const EditSupplierData = () => {
   const { closeModal } = useModal();
 
+  const { register, handleSubmit, reset } = useForm({
+    resolver: yupResolver(supplierSchema),
+    mode: "onSubmit",
+  });
+
+  const onSubmit = data => {
+    console.log(data);
+    reset();
+    closeModal();
+  };
+
   return (
     <>
       <h2 className={s.modalTitle}>Edit supplier</h2>
-      <form className={s.modalForm}>
+      <form className={s.modalForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={s.formInputWrap}>
           <input
+            {...register("name")}
             className={s.input}
             type="text"
-            name=""
             placeholder="Suppliers Info"
           />
           <input
+            {...register("address")}
             className={s.input}
             type="text"
-            name=""
             placeholder="Address"
           />
           <input
+            {...register("suppliers")}
             className={s.input}
             type="text"
-            name=""
             placeholder="Company"
           />
           <input
+            {...register("date")}
             className={s.input}
             type="text"
-            name=""
             placeholder="Delivery date"
           />
-          <input className={s.input} type="text" name="" placeholder="Amount" />
-          <input className={s.input} type="text" name="" placeholder="Status" />
+          <input
+            {...register("amount")}
+            className={s.input}
+            type="text"
+            placeholder="Amount"
+          />
+          <input
+            {...register("status")}
+            className={s.input}
+            type="text"
+            placeholder="Status"
+          />
         </div>
         <div className={s.btnWrapper}>
           <button className={`${s.btn} ${s.saveBtn}`} type="submit">
