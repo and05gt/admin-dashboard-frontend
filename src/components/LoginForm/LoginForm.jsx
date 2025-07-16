@@ -4,6 +4,8 @@ import * as yup from "yup";
 import s from "./LoginForm.module.css";
 import { useForm } from "react-hook-form";
 import sprite from "../../assets/sprite.svg";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../redux/auth/operations.js";
 
 const loginSchema = yup.object().shape({
   email: yup
@@ -21,6 +23,7 @@ const loginSchema = yup.object().shape({
 
 const LoginForm = () => {
   const [isVisiblePassword, setIsVisiblePassword] = useState(false);
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -34,8 +37,7 @@ const LoginForm = () => {
   });
 
   const onSubmit = data => {
-    console.log(data);
-
+    dispatch(logIn(data));
     reset();
   };
 

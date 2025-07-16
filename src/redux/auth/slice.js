@@ -3,10 +3,10 @@ import { getUserInfo, logIn, logOut, refreshUser } from "./operations.js";
 
 const initialState = {
   user: {
-    name: null,
-    email: null,
+    name: "",
+    email: "",
   },
-  token: null,
+  token: "",
   isLoggedIn: false,
   isRefreshing: false,
 };
@@ -17,17 +17,15 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(logIn.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.user.email = action.payload.data.email;
+        state.token = action.payload.data.accessToken;
         state.isLoggedIn = true;
       })
       .addCase(logOut.fulfilled, () => initialState)
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
+      .addCase(refreshUser.fulfilled, state => {
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
@@ -35,9 +33,9 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(getUserInfo.fulfilled, (state, action) => {
-        state.user.name = action.payload.name;
-        state.user.email = action.payload.email;
-        state.token = action.payload.token;
+        state.user.name = action.payload.data.name;
+        state.user.email = action.payload.data.email;
+        state.token = action.payload.accessToken;
         state.isLoggedIn = true;
       });
   },
