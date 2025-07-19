@@ -52,6 +52,12 @@ export const refreshUser = createAsyncThunk(
         {},
         { withCredentials: true }
       );
+
+      const newToken = data.data.accessToken;
+      if (newToken) {
+        setAuthHeader(newToken);
+      }
+
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

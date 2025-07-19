@@ -1,5 +1,6 @@
 .table {
-  width: 335px;
+  table-layout: fixed;
+  max-width: 335px;
   padding: 0 14px;
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 0 0 8px 8px;
@@ -10,14 +11,14 @@
 
 @media (min-width: 768px) {
   .table {
-    width: 704px;
+    max-width: 704px;
     padding: 0 20px;
   }
 }
 
 @media (min-width: 1440px) {
   .table {
-    width: 630px;
+    max-width: 630px;
   }
 }
 
@@ -102,7 +103,7 @@
   padding: 14px 0 14px 10px;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
 
   .table td:nth-child(2),
   .table td:nth-child(3) {
@@ -121,15 +122,29 @@
 }
 
 .table td.name {
+  max-width: 92px;
+  width: 92px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding-right: 8px;
 }
 
 @media (min-width: 768px) {
   .table td.name {
+    max-width: 235px;
+    width: 235px;
     align-items: center;
     flex-direction: row;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table td.name {
+    max-width: 203px;
+    width: 203px;
+    padding-right: 21px;
   }
 }
 
@@ -140,9 +155,48 @@
   background-color: #DCDDDF;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .image {
     width: 36px;
     height: 36px;
+  }
+}
+
+.table td.email {
+  max-width: 150px;
+  width: 150px;
+  padding-right: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .table td.email {
+    max-width: 279px;
+    width: 279px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table td.email {
+    max-width: 269px;
+    width: 269px;
+  }
+}
+
+.table td.spent {
+  width: 62px;
+}
+
+@media (min-width: 768px) {
+  .table td.spent {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table td.spent {
+    width: 118px;
   }
 }

@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom';
-import s from './SidebarMenu.module.css';
-import clsx from 'clsx';
-import sprite from '../../assets/sprite.svg';
+import { NavLink } from "react-router-dom";
+import clsx from "clsx";
+import sprite from "../../assets/sprite.svg";
+import s from "./SidebarMenu.module.css";
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(s.link, isActive && s.active);

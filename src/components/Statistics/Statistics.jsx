@@ -1,7 +1,17 @@
-import sprite from '../../assets/sprite.svg';
-import s from './Statistics.module.css';
+import { useSelector } from "react-redux";
+import sprite from "../../assets/sprite.svg";
+import {
+  selectAllCustomers,
+  selectAllProducts,
+  selectAllSuppliers,
+} from "../../redux/dashboard/selectors.js";
+import s from "./Statistics.module.css";
 
 const Statistics = () => {
+  const allProducts = useSelector(selectAllProducts);
+  const allSuppliers = useSelector(selectAllSuppliers);
+  const allCustomers = useSelector(selectAllCustomers);
+
   return (
     <ul className={s.statisticsList}>
       <li className={s.statisticsItem}>
@@ -11,7 +21,7 @@ const Statistics = () => {
           </svg>
           <p className={s.statItemText}>All products</p>
         </div>
-        <p className={s.statItemValue}>8,430</p>
+        <p className={s.statItemValue}>{allProducts}</p>
       </li>
       <li className={s.statisticsItem}>
         <div className={s.statItemTitle}>
@@ -20,7 +30,7 @@ const Statistics = () => {
           </svg>
           <p className={s.statItemText}>All suppliers</p>
         </div>
-        <p className={s.statItemValue}>211</p>
+        <p className={s.statItemValue}>{allSuppliers}</p>
       </li>
       <li className={s.statisticsItem}>
         <div className={s.statItemTitle}>
@@ -29,7 +39,7 @@ const Statistics = () => {
           </svg>
           <p className={s.statItemText}>All customers</p>
         </div>
-        <p className={s.statItemValue}>140</p>
+        <p className={s.statItemValue}>{allCustomers}</p>
       </li>
     </ul>
   );
