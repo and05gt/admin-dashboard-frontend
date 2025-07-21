@@ -1,65 +1,61 @@
-import s from './AllOrdersTable.module.css';
+import { useSelector } from "react-redux";
+import {
+  selectIsError,
+  selectIsLoading,
+  selectOrders,
+} from "../../redux/orders/selectors.js";
+import s from "./AllOrdersTable.module.css";
 
 const AllOrdersTable = () => {
-  return (
-    <table className={s.table}>
-      <caption className={s.tableCaption}>All orders</caption>
-      <thead>
-        <tr>
-          <th>User Info</th>
-          <th>Address</th>
-          <th>Products</th>
-          <th>Order date</th>
-          <th>Price</th>
-          <th>Status</th>
-        </tr>
-      </thead>
+  const orders = useSelector(selectOrders);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
 
-      <tbody>
-        <tr>
-          <td className={s.userInfo}>
-            {' '}
-            <div className={s.image}></div>
-            Alex Shatov
-          </td>
-          <td>Mripur-1</td>
-          <td>12</td>
-          <td>July 31, 2023</td>
-          <td>890.66</td>
-          <td>
-            <div className={`${s.status} ${s.completed}`}>Completed</div>
-          </td>
-        </tr>
-        <tr>
-          <td className={s.userInfo}>
-            {' '}
-            <div className={s.image}></div>
-            Philip Harbach
-          </td>
-          <td>Dhonmondi</td>
-          <td>19</td>
-          <td>July 31, 2023</td>
-          <td>340.16</td>
-          <td>
-            <div className={`${s.status} ${s.confirmed}`}>Confirmed</div>
-          </td>
-        </tr>
-        <tr>
-          <td className={s.userInfo}>
-            {' '}
-            <div className={s.image}></div>
-            Mirko Fisuk
-          </td>
-          <td>Uttara-6</td>
-          <td>09</td>
-          <td>July 31, 2023</td>
-          <td>530.76</td>
-          <td>
-            <div className={`${s.status} ${s.pending}`}>Pending</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  return (
+    <>
+      {isLoading && !isError && <h3>Loading...</h3>}
+      {isError && <h3>{isError}</h3>}
+      <table className={s.table}>
+        <caption className={s.tableCaption}>All orders</caption>
+        <thead>
+          <tr>
+            <th className={s.userInfo}>User Info</th>
+            <th className={s.address}>Address</th>
+            <th className={s.products}>Products</th>
+            <th className={s.order_date}>Order date</th>
+            <th className={s.price}>Price</th>
+            <th className={s.status}>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {orders.map(order => (
+            <tr key={order._id}>
+              <td className={s.userInfo}>
+                <img className={s.image} src={order.photo} alt="Order image" />
+                {order.name}
+              </td>
+              <td className={s.address}>{order.address}</td>
+              <td>{order.products}</td>
+              <td>{order.order_date}</td>
+              <td>{order.price}</td>
+              <td>
+                <div
+                  className={`${s.statusBadge} ${
+                    (order.status === "Completed" && s.completed) ||
+                    (order.status === "Confirmed" && s.confirmed) ||
+                    (order.status === "Pending" && s.pending) ||
+                    (order.status === "Cancelled" && s.cancelled) ||
+                    (order.status === "Processing" && s.processing)
+                  }`}>
+                  {order.status}
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 export default AllOrdersTable;

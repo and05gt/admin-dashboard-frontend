@@ -12,6 +12,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { ordersReducer } from "./orders/slice.js";
 
 const persistConfig = {
   key: "root-auth",
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(persistConfig, authReducer),
     dashboard: dashboardReducer,
+    orders: ordersReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
