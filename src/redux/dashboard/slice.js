@@ -14,6 +14,7 @@ const initialState = {
 const dashboardSlice = createSlice({
   name: "dashboard",
   initialState,
+
   extraReducers: builder => {
     builder
       .addCase(getDashboardData.pending, state => {

@@ -13,7 +13,7 @@ const AllOrdersTable = () => {
 
   return (
     <>
-      {isLoading && !isError && <h3>Loading...</h3>}
+      {isLoading && <h3>Loading...</h3>}
       {isError && <h3>{isError}</h3>}
       <table className={s.table}>
         <caption className={s.tableCaption}>All orders</caption>
