@@ -2,6 +2,8 @@ import { useModal } from "../ModalContext.jsx";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { updateProduct } from "../../redux/products/operations.js";
 import s from "./EditProductData.module.css";
 
 const productSchema = yup.object().shape({
@@ -12,8 +14,9 @@ const productSchema = yup.object().shape({
   category: yup.string().required("Category is required!"),
 });
 
-const EditProductData = () => {
+const EditProductData = ({ product }) => {
   const { closeModal } = useModal();
+  const dispatch = useDispatch();
 
   const { register, handleSubmit, reset } = useForm({
     resolver: yupResolver(productSchema),
@@ -21,7 +24,7 @@ const EditProductData = () => {
   });
 
   const onSubmit = data => {
-    console.log(data);
+    dispatch(updateProduct({ productId: product._id, payload: data }));
     reset();
     closeModal();
   };

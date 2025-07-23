@@ -19,6 +19,7 @@ const dashboardSlice = createSlice({
     builder
       .addCase(getDashboardData.pending, state => {
         state.isLoading = true;
+        state.isError = null;
       })
       .addCase(getDashboardData.fulfilled, (state, action) => {
         state.allProducts = action.payload.data.allProducts;
@@ -27,6 +28,7 @@ const dashboardSlice = createSlice({
         state.lastCustomers = action.payload.data.lastCustomers;
         state.incomeExpenses = action.payload.data.incomeExpenses;
         state.isLoading = false;
+        state.isError = null;
       })
       .addCase(getDashboardData.rejected, (state, action) => {
         state.isLoading = false;

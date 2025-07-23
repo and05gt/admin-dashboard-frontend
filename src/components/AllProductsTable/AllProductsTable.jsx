@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import sprite from "../../assets/sprite.svg";
 import EditProductData from "../EditProductData/EditProductData.jsx";
 import { useModal } from "../ModalContext.jsx";
@@ -7,6 +7,7 @@ import {
   selectIsLoading,
   selectProducts,
 } from "../../redux/products/selectors.js";
+import { deleteProduct } from "../../redux/products/operations.js";
 import s from "./AllProductsTable.module.css";
 
 const AllProductsTable = () => {
@@ -14,6 +15,7 @@ const AllProductsTable = () => {
   const products = useSelector(selectProducts);
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -43,12 +45,16 @@ const AllProductsTable = () => {
               <td className={s.actionWrapper}>
                 <button
                   className={s.buttonEdit}
-                  onClick={() => openModal(<EditProductData />)}>
+                  onClick={() =>
+                    openModal(<EditProductData product={product} />)
+                  }>
                   <svg className={s.buttonEditIcon} width={16} height={16}>
                     <use href={`${sprite}#icon-edit`}></use>
                   </svg>
                 </button>
-                <button className={s.buttonTrash}>
+                <button
+                  className={s.buttonTrash}
+                  onClick={() => dispatch(deleteProduct(product._id))}>
                   <svg className={s.buttonTrashIcon} width={16} height={16}>
                     <use href={`${sprite}#icon-trash`}></use>
                   </svg>
