@@ -1,85 +1,72 @@
-import sprite from '../../assets/sprite.svg';
-import EditSupplierData from '../EditSupplierData/EditSupplierData.jsx';
-import { useModal } from '../ModalContext.jsx';
-import s from './AllSuppliersTable.module.css';
+import { useSelector } from "react-redux";
+import sprite from "../../assets/sprite.svg";
+import EditSupplierData from "../EditSupplierData/EditSupplierData.jsx";
+import { useModal } from "../ModalContext.jsx";
+import {
+  selectIsError,
+  selectIsLoading,
+  selectSuppliers,
+} from "../../redux/suppliers/selectors.js";
+import s from "./AllSuppliersTable.module.css";
 
 const AllSuppliersTable = () => {
   const { openModal } = useModal();
+  const suppliers = useSelector(selectSuppliers);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
 
   return (
-    <table className={s.table}>
-      <caption className={s.tableCaption}>All suppliers</caption>
-      <thead>
-        <tr>
-          <th>Suppliers Info</th>
-          <th>Address</th>
-          <th>Company</th>
-          <th>Delivery date</th>
-          <th>Amount</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
+    <>
+      {isLoading && <h3>Loading...</h3>}
+      {isError && <h3>{isError}</h3>}
+      <table className={s.table}>
+        <caption className={s.tableCaption}>All suppliers</caption>
+        <thead>
+          <tr>
+            <th className={s.name}>Suppliers Info</th>
+            <th className={s.address}>Address</th>
+            <th className={s.company}>Company</th>
+            <th className={s.date}>Delivery date</th>
+            <th className={s.amount}>Amount</th>
+            <th className={s.status}>Status</th>
+            <th className={s.action}>Action</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <tr>
-          <td>Alex Shatov</td>
-          <td>Mripur-1</td>
-          <td>Square</td>
-          <td>August 1, 2023</td>
-          <td>6952.53</td>
-          <td>
-            <div className={s.statusActive}>Active</div>
-          </td>
-          <td>
-            <button
-              className={s.buttonEdit}
-              onClick={() => openModal(<EditSupplierData />)}>
-              <svg className={s.buttonEditIcon} width={14} height={14}>
-                <use href={`${sprite}#icon-edit`}></use>
-              </svg>
-              Edit
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Philip Harbach</td>
-          <td>Dhonmondi</td>
-          <td>Acme</td>
-          <td>August 1, 2023</td>
-          <td>8527.58</td>
-          <td>
-            <div className={s.statusActive}>Active</div>
-          </td>
-          <td>
-            <button className={s.buttonEdit}>
-              <svg className={s.buttonEditIcon} width={14} height={14}>
-                <use href={`${sprite}#icon-edit`}></use>
-              </svg>
-              Edit
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td>Burak Long</td>
-          <td>Mirpur-12</td>
-          <td>Uniliver</td>
-          <td>August 1, 2023</td>
-          <td>1736.90</td>
-          <td>
-            <div className={s.statusDeactive}>Deactive</div>
-          </td>
-          <td>
-            <button className={s.buttonEdit}>
-              <svg className={s.buttonEditIcon} width={14} height={14}>
-                <use href={`${sprite}#icon-edit`}></use>
-              </svg>
-              Edit
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        <tbody>
+          {suppliers.map(supplier => (
+            <tr key={supplier._id}>
+              <td>{supplier.name}</td>
+              <td>{supplier.address}</td>
+              <td>{supplier.suppliers}</td>
+              <td>{supplier.date}</td>
+              <td>{supplier.amount}</td>
+              <td>
+                <div
+                  className={`${
+                    (supplier.status === "Active" && s.statusActive) ||
+                    (supplier.status === "Deactive" && s.statusDeactive)
+                  }`}>
+                  {supplier.status}
+                </div>
+              </td>
+              <td>
+                <button
+                  className={s.buttonEdit}
+                  onClick={() =>
+                    openModal(<EditSupplierData supplier={supplier} />)
+                  }>
+                  <svg className={s.buttonEditIcon} width={14} height={14}>
+                    <use href={`${sprite}#icon-edit`}></use>
+                  </svg>
+                  Edit
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 export default AllSuppliersTable;

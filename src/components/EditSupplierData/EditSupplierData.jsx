@@ -2,6 +2,8 @@ import { useModal } from "../ModalContext.jsx";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { updateSupplier } from "../../redux/suppliers/operations.js";
 import s from "./EditSupplierData.module.css";
 
 const supplierSchema = yup.object().shape({
@@ -13,8 +15,9 @@ const supplierSchema = yup.object().shape({
   status: yup.string().required("Status is required!"),
 });
 
-const EditSupplierData = () => {
+const EditSupplierData = ({ supplier }) => {
   const { closeModal } = useModal();
+  const dispatch = useDispatch();
 
   const { register, handleSubmit, reset } = useForm({
     resolver: yupResolver(supplierSchema),
@@ -22,7 +25,7 @@ const EditSupplierData = () => {
   });
 
   const onSubmit = data => {
-    console.log(data);
+    dispatch(updateSupplier({ supplierId: supplier._id, payload: data }));
     reset();
     closeModal();
   };

@@ -1,4 +1,5 @@
 .table {
+  table-layout: fixed;
   width: 678px;
   padding: 0 14px;
   border: 1px solid rgba(29, 30, 33, 0.1);
@@ -63,6 +64,139 @@
 
 .table th:not(:last-child) {
   border-right: 1px solid rgba(29, 30, 33, 0.1);
+}
+
+.table th.name {
+  max-width: 94px;
+  width: 94px;
+}
+
+@media (min-width: 768px) {
+  .table th.name {
+    max-width: 175px;
+    width: 175px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.name {
+    max-width: 191px;
+    width: 191px;
+  }
+}
+
+.table th.address {
+  max-width: 94px;
+  width: 94px;
+}
+
+@media (min-width: 768px) {
+  .table th.address {
+    max-width: 128px;
+    width: 128px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.address {
+    max-width: 188px;
+    width: 188px;
+  }
+}
+
+.table th.company {
+  max-width: 83px;
+  width: 83px;
+}
+
+@media (min-width: 768px) {
+  .table th.company {
+    max-width: 108px;
+    width: 108px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.company {
+    max-width: 166px;
+    width: 166px;
+  }
+}
+
+.table th.date {
+  max-width: 115px;
+  width: 115px;
+}
+
+@media (min-width: 768px) {
+  .table th.date {
+    max-width: 157px;
+    width: 157px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.date {
+    max-width: 215px;
+    width: 215px;
+  }
+}
+
+.table th.amount {
+  max-width: 88px;
+  width: 88px;
+}
+
+@media (min-width: 768px) {
+  .table th.amount {
+    max-width: 121px;
+    width: 121px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.amount {
+    max-width: 162px;
+    width: 162px;
+  }
+}
+
+.table th.status {
+  max-width: 90px;
+  width: 90px;
+}
+
+@media (min-width: 768px) {
+  .table th.status {
+    max-width: 129px;
+    width: 129px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.status {
+    max-width: 189px;
+    width: 189px;
+  }
+}
+
+.table th.action {
+  max-width: 86px;
+  width: 86px;
+}
+
+@media (min-width: 768px) {
+  .table th.action {
+    max-width: 102px;
+    width: 102px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.action {
+    max-width: 129px;
+    width: 129px;
+  }
 }
 
 .table td {
