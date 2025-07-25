@@ -6,7 +6,7 @@ import { useModal } from "../../components/ModalContext.jsx";
 import AddNewProduct from "../../components/AddNewProduct/AddNewProduct.jsx";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { getProducts } from "../../redux/products/operations.js";
+import { fetchProducts } from "../../redux/products/operations.js";
 import s from "./AllProductsPage.module.css";
 
 const AllProductsPage = () => {
@@ -14,7 +14,7 @@ const AllProductsPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   return (

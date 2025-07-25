@@ -3,14 +3,14 @@ import AllOrdersTable from "../../components/AllOrdersTable/AllOrdersTable.jsx";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import UserNameFilter from "../../components/UserNameFilter/UserNameFilter.jsx";
 import { useEffect } from "react";
-import { getOrders } from "../../redux/orders/operations.js";
+import { fetchOrders } from "../../redux/orders/operations.js";
 import s from "./AllOrdersPage.module.css";
 
 const AllOrdersPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getOrders());
+    dispatch(fetchOrders());
   }, [dispatch]);
 
   return (

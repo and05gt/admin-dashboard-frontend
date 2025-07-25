@@ -1,4 +1,5 @@
 .table {
+  table-layout: fixed;
   width: 670px;
   padding: 0 14px;
   border: 1px solid rgba(29, 30, 33, 0.1);
@@ -61,6 +62,101 @@
   }
 }
 
+.table th.name {
+  max-width: 94px;
+  width: 94px;
+}
+
+@media (min-width: 768px) {
+  .table th.name {
+    max-width: 195px;
+    width: 195px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.name {
+    max-width: 260px;
+    width: 260px;
+  }
+}
+
+.table th.email {
+  max-width: 161px;
+  width: 161px;
+}
+
+@media (min-width: 768px) {
+  .table th.email {
+    max-width: 234px;
+    width: 234px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.email {
+    max-width: 299px;
+    width: 299px;
+  }
+}
+
+.table th.address {
+  max-width: 120px;
+  width: 120px;
+}
+
+@media (min-width: 768px) {
+  .table th.address {
+    max-width: 148px;
+    width: 148px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.address {
+    max-width: 213px;
+    width: 213px;
+  }
+}
+
+.table th.phone {
+  max-width: 148px;
+  width: 148px;
+}
+
+@media (min-width: 768px) {
+  .table th.phone {
+    max-width: 198px;
+    width: 198px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.phone {
+    max-width: 263px;
+    width: 263px;
+  }
+}
+
+.table th.date {
+  max-width: 119px;
+  width: 119px;
+}
+
+@media (min-width: 768px) {
+  .table th.date {
+    max-width: 145px;
+    width: 145px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .table th.date {
+    max-width: 205px;
+    width: 205px;
+  }
+}
+
 .table th:not(:last-child) {
   border-right: 1px solid rgba(29, 30, 33, 0.1);
 }
@@ -111,6 +207,15 @@
     align-items: center;
     flex-direction: row;
   }
+}
+
+.table td.customerEmail {
+  max-width: 161px;
+  width: 161px;
+  padding-right: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .image {

@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import {
   addProduct,
   deleteProduct,
-  getProducts,
+  fetchProducts,
   updateProduct,
 } from "./operations.js";
 
@@ -18,7 +18,7 @@ const productsSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(getProducts.fulfilled, (state, action) => {
+      .addCase(fetchProducts.fulfilled, (state, action) => {
         state.products = action.payload.data.data;
       })
       .addCase(addProduct.fulfilled, (state, action) => {
@@ -39,7 +39,7 @@ const productsSlice = createSlice({
       })
       .addMatcher(
         isAnyOf(
-          getProducts.pending,
+          fetchProducts.pending,
           addProduct.pending,
           updateProduct.pending,
           deleteProduct.pending
@@ -51,7 +51,7 @@ const productsSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(
-          getProducts.fulfilled,
+          fetchProducts.fulfilled,
           addProduct.fulfilled,
           updateProduct.fulfilled,
           deleteProduct.fulfilled
@@ -63,7 +63,7 @@ const productsSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(
-          getProducts.rejected,
+          fetchProducts.rejected,
           addProduct.rejected,
           updateProduct.rejected,
           deleteProduct.rejected

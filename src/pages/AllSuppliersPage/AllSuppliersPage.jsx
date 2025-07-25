@@ -4,16 +4,16 @@ import AllSuppliersTable from "../../components/AllSuppliersTable/AllSuppliersTa
 import { useModal } from "../../components/ModalContext.jsx";
 import Pagination from "../../components/Pagination/Pagination.jsx";
 import UserNameFilter from "../../components/UserNameFilter/UserNameFilter.jsx";
-import s from "./AllSuppliersPage.module.css";
 import { useEffect } from "react";
-import { getSuppliers } from "../../redux/suppliers/operations.js";
+import { fetchSuppliers } from "../../redux/suppliers/operations.js";
+import s from "./AllSuppliersPage.module.css";
 
 const AllSuppliersPage = () => {
   const { openModal } = useModal();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getSuppliers());
+    dispatch(fetchSuppliers());
   }, [dispatch]);
 
   return (

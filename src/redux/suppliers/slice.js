@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { addSupplier, getSuppliers, updateSupplier } from "./operations.js";
+import { addSupplier, fetchSuppliers, updateSupplier } from "./operations.js";
 
 const initialState = {
   suppliers: [],
@@ -13,7 +13,7 @@ const suppliersSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(getSuppliers.fulfilled, (state, action) => {
+      .addCase(fetchSuppliers.fulfilled, (state, action) => {
         state.suppliers = action.payload.data.data;
       })
       .addCase(addSupplier.fulfilled, (state, action) => {
@@ -29,7 +29,7 @@ const suppliersSlice = createSlice({
       })
       .addMatcher(
         isAnyOf(
-          getSuppliers.pending,
+          fetchSuppliers.pending,
           addSupplier.pending,
           updateSupplier.pending
         ),
@@ -40,7 +40,7 @@ const suppliersSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(
-          getSuppliers.fulfilled,
+          fetchSuppliers.fulfilled,
           addSupplier.fulfilled,
           updateSupplier.fulfilled
         ),
@@ -51,7 +51,7 @@ const suppliersSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(
-          getSuppliers.rejected,
+          fetchSuppliers.rejected,
           addSupplier.rejected,
           updateSupplier.rejected
         ),

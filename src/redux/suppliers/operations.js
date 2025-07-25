@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { pharmacyApi } from "../auth/operations.js";
 
-export const getSuppliers = createAsyncThunk(
-  "suppliers/getSuppliers",
+export const fetchSuppliers = createAsyncThunk(
+  "suppliers/fetchSuppliers",
   async (_, thunkAPI) => {
     try {
       const { data } = await pharmacyApi.get("/api/suppliers?page=1&perPage=5");

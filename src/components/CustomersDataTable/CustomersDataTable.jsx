@@ -1,55 +1,52 @@
-import s from './CustomersDataTable.module.css';
+import { useSelector } from "react-redux";
+import {
+  selectCustomers,
+  selectIsError,
+  selectIsLoading,
+} from "../../redux/customers/selectors.js";
+import s from "./CustomersDataTable.module.css";
 
 const CustomersDataTable = () => {
-  return (
-    <table className={s.table}>
-      <caption className={s.tableCaption}>Customers Data</caption>
-      <thead>
-        <tr>
-          <th>User Info</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Phone</th>
-          <th>Register date</th>
-        </tr>
-      </thead>
+  const customers = useSelector(selectCustomers);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
 
-      <tbody>
-        <tr>
-          <td className={s.userInfo}>
-            {' '}
-            <div className={s.image}></div>
-            Alex Shatov
-          </td>
-          <td>alexshatov@gmail.com</td>
-          <td>Mripur-1</td>
-          <td>+8801736985253</td>
-          <td>Aug 1, 2023</td>
-        </tr>
-        <tr>
-          <td className={s.userInfo}>
-            {' '}
-            <div className={s.image}></div>
-            Philip Harbach
-          </td>
-          <td>philip.h@gmail.com</td>
-          <td>Dhonmondi</td>
-          <td>+8801636985275</td>
-          <td>Aug 1, 2023</td>
-        </tr>
-        <tr>
-          <td className={s.userInfo}>
-            {' '}
-            <div className={s.image}></div>
-            Mirko Fisuk
-          </td>
-          <td>mirkofisuk@gmail.com</td>
-          <td>Uttara-6</td>
-          <td>+8801336985214</td>
-          <td>Aug 1, 2023</td>
-        </tr>
-      </tbody>
-    </table>
+  return (
+    <>
+      {isLoading && <h3>Loading...</h3>}
+      {isError && <h3>{isError}</h3>}
+      <table className={s.table}>
+        <caption className={s.tableCaption}>Customers Data</caption>
+        <thead>
+          <tr>
+            <th className={s.name}>User Info</th>
+            <th className={s.email}>Email</th>
+            <th className={s.address}>Address</th>
+            <th className={s.phone}>Phone</th>
+            <th className={s.date}>Register date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {customers.map(customer => (
+            <tr key={customer._id}>
+              <td className={s.userInfo}>
+                <img
+                  className={s.image}
+                  src={customer.photo}
+                  alt="Customer Image"
+                />
+                {customer.name}
+              </td>
+              <td className={s.customerEmail}>{customer.email}</td>
+              <td>{customer.address}</td>
+              <td>{customer.phone}</td>
+              <td>{customer.register_date}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 export default CustomersDataTable;
