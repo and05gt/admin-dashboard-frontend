@@ -3,6 +3,7 @@ import { addSupplier, fetchSuppliers, updateSupplier } from "./operations.js";
 
 const initialState = {
   suppliers: [],
+  totalPages: null,
   isLoading: false,
   isError: null,
 };
@@ -15,9 +16,7 @@ const suppliersSlice = createSlice({
     builder
       .addCase(fetchSuppliers.fulfilled, (state, action) => {
         state.suppliers = action.payload.data.data;
-      })
-      .addCase(addSupplier.fulfilled, (state, action) => {
-        state.suppliers.push(action.payload.data);
+        state.totalPages = action.payload.data.totalPages;
       })
       .addCase(updateSupplier.fulfilled, (state, action) => {
         const index = state.suppliers.findIndex(

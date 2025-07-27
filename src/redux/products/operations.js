@@ -3,9 +3,11 @@ import { pharmacyApi } from "../auth/operations.js";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async (_, thunkAPI) => {
+  async ({ page = 1, queryParams }, thunkAPI) => {
     try {
-      const { data } = await pharmacyApi.get("/api/products?page=1&perPage=5");
+      const { data } = await pharmacyApi.get(
+        `/api/products?page=${page}&perPage=5&sortOrder=desc${queryParams}`
+      );
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

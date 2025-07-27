@@ -20,20 +20,6 @@
   }
 }
 
-.active {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #59b17a;
-}
-
-@media (min-width: 768px) {
-  .active {
-    width: 13px;
-    height: 13px;
-  }
-}
-
 .btn {
   width: 10px;
   height: 10px;
@@ -45,5 +31,18 @@
   .btn {
     width: 11px;
     height: 11px;
+  }
+}
+
+.active {
+  width: 12px;
+  height: 12px;
+  background-color: #59b17a;
+}
+
+@media (min-width: 768px) {
+  .active {
+    width: 13px;
+    height: 13px;
   }
 }

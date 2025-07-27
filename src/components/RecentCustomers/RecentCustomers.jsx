@@ -22,7 +22,7 @@ const RecentCustomers = () => {
             <td className={s.name}>
               <img
                 className={s.image}
-                src={customer.image}
+                src={customer.photo}
                 alt="Customer Image"
               />
               {customer.name}

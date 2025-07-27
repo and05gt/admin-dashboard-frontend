@@ -4,6 +4,7 @@ import { getCustomerById, fetchCustomers } from "./operations.js";
 const initialState = {
   customers: [],
   customer: null,
+  totalPages: null,
   isLoading: false,
   isError: null,
 };
@@ -16,6 +17,7 @@ const customersSlice = createSlice({
     builder
       .addCase(fetchCustomers.fulfilled, (state, action) => {
         state.customers = action.payload.data.data;
+        state.totalPages = action.payload.data.totalPages;
       })
       .addCase(getCustomerById.fulfilled, (state, action) => {
         state.customer = action.payload.data.data;

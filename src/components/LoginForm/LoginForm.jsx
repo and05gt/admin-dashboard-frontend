@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import s from "./LoginForm.module.css";
 import { useForm } from "react-hook-form";
 import sprite from "../../assets/sprite.svg";
 import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth/operations.js";
+import s from "./LoginForm.module.css";
 
 const loginSchema = yup.object().shape({
   email: yup

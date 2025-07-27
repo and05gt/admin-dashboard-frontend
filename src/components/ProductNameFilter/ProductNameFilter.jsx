@@ -1,13 +1,25 @@
-import sprite from '../../assets/sprite.svg';
-import s from './ProductNameFilter.module.css';
+import sprite from "../../assets/sprite.svg";
+import { useForm } from "react-hook-form";
+import s from "./ProductNameFilter.module.css";
 
-const ProductNameFilter = () => {
+const ProductNameFilter = ({ handleChangeFilterName }) => {
+  const { register, handleSubmit, reset, watch } = useForm({
+    mode: "onSubmit",
+  });
+
+  const query = watch("search");
+
+  const onSubmit = () => {
+    handleChangeFilterName(query);
+    reset();
+  };
+
   return (
-    <form className={s.form}>
+    <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
       <input
+        {...register("search")}
         className={s.input}
         type="text"
-        name="name"
         placeholder="Product Name"
       />
       <button className={s.btn} type="submit">

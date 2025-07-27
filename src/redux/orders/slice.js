@@ -3,6 +3,7 @@ import { fetchOrders } from "./operations.js";
 
 const initialState = {
   orders: [],
+  totalPages: null,
   isLoading: false,
   isError: null,
 };
@@ -19,6 +20,7 @@ const ordersSlice = createSlice({
       })
       .addCase(fetchOrders.fulfilled, (state, action) => {
         state.orders = action.payload.data.data;
+        state.totalPages = action.payload.data.totalPages;
         state.isLoading = false;
         state.isError = null;
       })

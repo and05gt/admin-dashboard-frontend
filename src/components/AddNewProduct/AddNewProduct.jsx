@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../../redux/products/operations.js";
+import { addProduct, fetchProducts } from "../../redux/products/operations.js";
 import s from "./AddNewProduct.module.css";
 
 const productSchema = yup.object().shape({
@@ -14,7 +14,7 @@ const productSchema = yup.object().shape({
   category: yup.string().required("Category is required!"),
 });
 
-const AddNewProduct = () => {
+const AddNewProduct = ({ currentPage }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
@@ -23,8 +23,9 @@ const AddNewProduct = () => {
     mode: "onSubmit",
   });
 
-  const onSubmit = data => {
-    dispatch(addProduct(data));
+  const onSubmit = async data => {
+    await dispatch(addProduct(data));
+    await dispatch(fetchProducts({ page: currentPage }));
     reset();
     closeModal();
   };

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import sprite from "../../assets/sprite.svg";
-import s from "./LogoutBtn.module.css";
 import { logOut } from "../../redux/auth/operations.js";
+import s from "./LogoutBtn.module.css";
 
 const LogoutBtn = () => {
   const dispatch = useDispatch();

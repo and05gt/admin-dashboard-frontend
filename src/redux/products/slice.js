@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   products: [],
+  totalPages: null,
   isLoading: false,
   isError: null,
 };
@@ -20,9 +21,7 @@ const productsSlice = createSlice({
     builder
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.products = action.payload.data.data;
-      })
-      .addCase(addProduct.fulfilled, (state, action) => {
-        state.products.push(action.payload.data);
+        state.totalPages = action.payload.data.totalPages;
       })
       .addCase(updateProduct.fulfilled, (state, action) => {
         const index = state.products.findIndex(

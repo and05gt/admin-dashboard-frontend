@@ -3,7 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { addSupplier } from "../../redux/suppliers/operations.js";
+import {
+  addSupplier,
+  fetchSuppliers,
+} from "../../redux/suppliers/operations.js";
 import s from "./AddNewSupplier.module.css";
 
 const supplierSchema = yup.object().shape({
@@ -15,7 +18,7 @@ const supplierSchema = yup.object().shape({
   status: yup.string().required("Status is required!"),
 });
 
-const AddNewSupplier = () => {
+const AddNewSupplier = ({ currentPage }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
 
@@ -24,8 +27,9 @@ const AddNewSupplier = () => {
     mode: "onSubmit",
   });
 
-  const onSubmit = data => {
-    dispatch(addSupplier(data));
+  const onSubmit = async data => {
+    await dispatch(addSupplier(data));
+    await dispatch(fetchSuppliers({ page: currentPage }));
     reset();
     closeModal();
   };

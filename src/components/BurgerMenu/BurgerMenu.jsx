@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import sprite from "../../assets/sprite.svg";
 import LogoutBtn from "../LogoutBtn/LogoutBtn.jsx";
 import SidebarMenu from "../SidebarMenu/SidebarMenu.jsx";
-import s from "./BurgerMenu.module.css";
 import { noScroll } from "../../utils/noScroll.js";
+import s from "./BurgerMenu.module.css";
 
 const BurgerMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
