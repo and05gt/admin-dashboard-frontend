@@ -1,10 +1,15 @@
 import { useModal } from "../ModalContext.jsx";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addProduct, fetchProducts } from "../../redux/products/operations.js";
+import { useState } from "react";
+import Select, { components } from "react-select";
+import sprite from "../../assets/sprite.svg";
+import { category } from "../../constants/index.js";
 import s from "./AddNewProduct.module.css";
+import { selectStyles } from "../../constants/selectStyles.js";
 
 const productSchema = yup.object().shape({
   name: yup.string().required("Name is required!"),
@@ -17,8 +22,9 @@ const productSchema = yup.object().shape({
 const AddNewProduct = ({ currentPage }) => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const { register, handleSubmit, reset } = useForm({
+  const { register, control, handleSubmit, reset } = useForm({
     resolver: yupResolver(productSchema),
     mode: "onSubmit",
   });
@@ -29,6 +35,14 @@ const AddNewProduct = ({ currentPage }) => {
     reset();
     closeModal();
   };
+
+  const DropdownIndicatorChevron = props => (
+    <components.DropdownIndicator {...props}>
+      <svg width={16} height={16} className={s.indicator}>
+        <use href={`${sprite}#icon-chevron-down`}></use>
+      </svg>
+    </components.DropdownIndicator>
+  );
 
   return (
     <>
@@ -41,11 +55,29 @@ const AddNewProduct = ({ currentPage }) => {
             type="text"
             placeholder="Product Info"
           />
-          <input
-            {...register("category")}
-            className={s.input}
-            type="text"
-            placeholder="Category"
+          <Controller
+            name="category"
+            control={control}
+            defaultValue={selectedCategory}
+            render={({ field }) => (
+              <Select
+                {...field}
+                components={{ DropdownIndicator: DropdownIndicatorChevron }}
+                className={s.select}
+                styles={selectStyles}
+                placeholder="Category"
+                onChange={option => {
+                  setSelectedCategory(option);
+                  field.onChange(option.value);
+                }}
+                options={category.map(item => ({
+                  label: item,
+                  value: item,
+                }))}
+                value={category.find(item => item === selectedCategory)}
+                unstyled
+              />
+            )}
           />
           <input
             {...register("suppliers")}
