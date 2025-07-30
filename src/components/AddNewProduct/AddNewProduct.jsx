@@ -7,7 +7,7 @@ import { addProduct, fetchProducts } from "../../redux/products/operations.js";
 import { useState } from "react";
 import Select, { components } from "react-select";
 import sprite from "../../assets/sprite.svg";
-import { category } from "../../constants/index.js";
+import { categoryList } from "../../constants/index.js";
 import s from "./AddNewProduct.module.css";
 import { selectStyles } from "../../constants/selectStyles.js";
 
@@ -67,14 +67,11 @@ const AddNewProduct = ({ currentPage }) => {
                 styles={selectStyles}
                 placeholder="Category"
                 onChange={option => {
-                  setSelectedCategory(option);
-                  field.onChange(option.value);
+                  setSelectedCategory(option.value);
+                  field.onChange(option?.value);
                 }}
-                options={category.map(item => ({
-                  label: item,
-                  value: item,
-                }))}
-                value={category.find(item => item === selectedCategory)}
+                options={categoryList}
+                value={categoryList.find(item => item.value === field.value)}
                 unstyled
               />
             )}

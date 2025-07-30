@@ -49,8 +49,26 @@
   }
 }
 
+.input::placeholder {
+  color: rgba(29, 30, 33, 0.4);
+}
+
 .input:focus {
   border: 1px solid #59b17a;
+}
+
+.indicator {
+  fill: #1D1E21;
+}
+
+.select {
+  width: 295px;
+}
+
+@media (min-width: 768px) {
+  .select {
+    width: 224px;
+  }
 }
 
 .btnWrapper {
