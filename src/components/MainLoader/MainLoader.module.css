@@ -1,0 +1,18 @@
+.loaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.loader {
+  width: 100px;
+  height: 100px;
+}
+
+@media (min-width: 1440px) {
+  .loader {
+    width: 120px;
+    height: 120px;
+  }
+}

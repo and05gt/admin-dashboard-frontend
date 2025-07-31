@@ -1,5 +1,6 @@
-import { createContext, use, useState } from 'react';
-import ModalBackdrop from './Modal/ModalBackdrop.jsx';
+import { createContext, use, useEffect, useState } from "react";
+import ModalBackdrop from "./Modal/ModalBackdrop.jsx";
+import { noScroll } from "../utils/noScroll.js";
 
 export const ModalContext = createContext();
 
@@ -8,6 +9,10 @@ export const useModal = () => use(ModalContext);
 export const ModalProvider = ({ children }) => {
   const [modalContent, setModalContent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    noScroll(isModalOpen);
+  }, [isModalOpen]);
 
   const openModal = content => {
     setModalContent(content);
@@ -19,7 +24,7 @@ export const ModalProvider = ({ children }) => {
   };
 
   const handleCloseModal = e => {
-    if ((e.code && e.code === 'Escape') || e.target === e.currentTarget) {
+    if ((e.code && e.code === "Escape") || e.target === e.currentTarget) {
       setModalContent(null);
     }
   };

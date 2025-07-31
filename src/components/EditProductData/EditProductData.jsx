@@ -9,7 +9,7 @@ import Select, { components } from "react-select";
 import sprite from "../../assets/sprite.svg";
 import { categoryList } from "../../constants/index.js";
 import s from "./EditProductData.module.css";
-import { selectStyles } from "../../constants/selectStyles.js";
+import { selectStylesWithValue } from "../../constants/selectStyles.js";
 
 const productSchema = yup.object().shape({
   name: yup.string().required("Name is required!"),
@@ -89,7 +89,7 @@ const EditProductData = ({ product }) => {
                 {...field}
                 components={{ DropdownIndicator: DropdownIndicatorChevron }}
                 className={s.select}
-                styles={selectStyles}
+                styles={selectStylesWithValue}
                 placeholder="Category"
                 options={categoryList}
                 value={categoryList.find(item => item.value === field.value)}

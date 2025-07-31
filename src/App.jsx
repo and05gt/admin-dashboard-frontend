@@ -6,6 +6,7 @@ import { PrivateRoute } from "./components/PrivateRoute.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing } from "./redux/auth/selectors.js";
 import { refreshUser } from "./redux/auth/operations.js";
+import MainLoader from "./components/MainLoader/MainLoader.jsx";
 
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage.jsx"));
 const DashboardPage = lazy(() =>
@@ -44,7 +45,7 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <h3>Loading...</h3>
+    <MainLoader />
   ) : (
     <>
       <Suspense fallback={<div>Loading...</div>}>
