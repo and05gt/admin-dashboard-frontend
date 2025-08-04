@@ -46,6 +46,7 @@
     align-items: center;
     justify-content: start;
     gap: 150px;
+    margin-bottom: 5px;
   }
 }
 
@@ -85,20 +86,20 @@
 
 .imgElements {
   position: absolute;
-  left: 97px;
   top: 666px;
+  right: 0;
 }
 
 @media (min-width: 768px) {
   .imgElements {
     top: 761px;
-    left: 470px;
   }
 }
 
 @media (min-width: 1440px) {
   .imgElements {
-    top: 543px;
-    left: 1161px;
+    position: relative;
+    top: 0;
+    margin-left: auto;
   }
 }
